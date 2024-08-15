@@ -1,4 +1,4 @@
-# List of locations in Glasgow
+# List of locations of Glasgow areas
 
 glasgow_east = '55.8537, -4.2055' # Note this seems to return 0 results within a 1km radius (can alter distance)
 glasgow_west = '55.8753, -4.2917'
