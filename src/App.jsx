@@ -1,41 +1,23 @@
 import React from 'react';
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import NavBar from './components/NavBar';
+import { ReactDOM } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Map from './pages/Map';
 
-const libraries = ['places'];
-const mapContainerStyle = {
-  width: '100vw',
-  height: '100vh',
-};
-const center = {
-  lat: 55.8617, // default latitude
-  lng: -4.2583, // default longitude
-};
-
-const App = () => {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyAbtWSKRM5IV53xhrqkHk6rUMAMEbjmw6U',
-    libraries,
-  });
-
-  if (loadError) {
-    return <div>Error loading maps</div>;
-  }
-
-  if (!isLoaded) {
-    return <div>Loading maps</div>;
-  }
-
+function App() {
   return (
-    <div>
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={13}
-        center={center}
-      >
-        <Marker position={center} />
-      </GoogleMap>
-    </div>
-  );
-};
+    <div className='bg-gray-950 min-h-screen'>
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<NavBar />}>
+          <Route index element={<Home/>}/>
+          <Route path="map" element={<Map/>}/>
+        </Route>
+      </Routes>
+     </BrowserRouter>
+     </div>
+  )
+}
 
-export default App;
+export default App

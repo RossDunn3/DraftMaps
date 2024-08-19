@@ -7,7 +7,7 @@ import os
 load_dotenv()
 api_key = os.getenv('api_key')
 search_radius = '1000' # this is in meters - so a 1km radius across the given area
-venue_type = 'night_club' # this is in place of pubs 
+venue_type = 'bar' # this is in place of pubs 
 
 
 # Function to locate different bars within each given location within glasgow
@@ -34,7 +34,7 @@ def locate_pubs(area_coords):
         print("Error in query!", response.status_code, response.text)
 
 
-locate_pubs(glasgow_centre)
+locate_pubs(glasgow_east)
         
 
 
