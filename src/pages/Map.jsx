@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker, Circle } from '@react-google-maps/api';
 import { Outlet} from "react-router-dom";
 
 const libraries = ['places'];
@@ -14,7 +14,7 @@ const center = {
 
 const Map = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyAbtWSKRM5IV53xhrqkHk6rUMAMEbjmw6U',
+    googleMapsApiKey: import.meta.env.VITE_API_KEY,
     libraries,
   });
 
@@ -34,8 +34,17 @@ const Map = () => {
         zoom={13}
         center={center}
       >
-        <Marker position={center} />
+        <Circle
+          radius={2000}
+          center={center}
+          strokeColor={'#0c4cb3'}
+          strokeOpacity={1}
+          strokeWeight={3}
+          fillColor={'#3b82f6'}
+          fillOpacity={0.3}
+        />
       </GoogleMap>
+      
     </div>
     <Outlet/>
     </>

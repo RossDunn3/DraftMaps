@@ -5,7 +5,7 @@ import os
 
 # Api key load
 load_dotenv()
-api_key = os.getenv('api_key')
+api_key = os.getenv('VITE_API_KEY')
 search_radius = '1000' # this is in meters - so a 1km radius across the given area
 venue_type = 'bar' # this is in place of pubs 
 
