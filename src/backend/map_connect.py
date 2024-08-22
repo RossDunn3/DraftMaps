@@ -2,6 +2,7 @@ import requests
 from locations import glasgow_east,glasgow_west,glasgow_north,glasgow_south,glasgow_centre
 from dotenv import load_dotenv
 import os
+import json 
 
 # Api key load
 load_dotenv()
@@ -22,6 +23,9 @@ def locate_pubs(area_coords):
     }
 
     response = requests.get(search, params=search_parameters)
+    
+    with open('./src/backend/data.json', 'w') as f:
+        json.dump(response.json(), f)
 
     if response.status_code == 200:
         query_data = response.json()
@@ -34,7 +38,9 @@ def locate_pubs(area_coords):
         print("Error in query!", response.status_code, response.text)
 
 
-locate_pubs(glasgow_east)
+locate_pubs(glasgow_centre)
+
+
         
 
 
