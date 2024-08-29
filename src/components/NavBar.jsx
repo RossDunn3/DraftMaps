@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Home from '../pages/Home';
+import Map from '../pages/Map'
 
 
 const NavBar = () => {
@@ -19,7 +20,7 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/about" className="hover:underline">
+          <Link to="/map" className="hover:underline">
             Map
           </Link>
         </li>
