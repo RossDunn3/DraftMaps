@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Home from '../pages/Home';
-import Beerlogo from '/src/assets/beer-transparent.png'
+
 
 const NavBar = () => {
   return (
